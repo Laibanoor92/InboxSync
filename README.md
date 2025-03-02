@@ -1,4 +1,4 @@
-# Email PDF Manager
+# InboxSync
 
 A Next.js application for managing email configurations and downloading PDF attachments.
 
