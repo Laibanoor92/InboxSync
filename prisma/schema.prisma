@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EmailConfig {
+  id        Int      @id @default(autoincrement())
+  name      String
+  type      String
+  host      String?
+  port      Int?
+  username  String
+  password  String?
+  token     Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PdfMetadata {
+  id           Int      @id @default(autoincrement())
+  filename     String
+  emailSubject String
+  sender       String
+  receivedAt   DateTime
+  fileSize     Int
+  path         String
+  configId     Int
+  createdAt    DateTime @default(now())
+}
